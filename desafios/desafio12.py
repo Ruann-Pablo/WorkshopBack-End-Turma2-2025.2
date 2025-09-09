@@ -15,9 +15,9 @@ print(f"O valor da chave '{chave}' é: {dados[chave]}")
 ```
 
 Tarefa:
-1️⃣ Teste com diferentes entradas e veja quais causam erro.
-2️⃣ Implemente `try-except` para capturar `KeyError` e mostrar uma mensagem amigável.
-3️⃣ Pesquise sobre o método `get()` e utilize-o para evitar erros ao acessar o dicionário.
+1- Teste com diferentes entradas e veja quais causam erro.
+2- Implemente `try-except` para capturar `KeyError` e mostrar uma mensagem amigável.
+3- Pesquise sobre o método `get()` e utilize-o para evitar erros ao acessar o dicionário.
 
 💡 Dica: `dados.get("endereco", "Endereço não encontrado")` evita o erro."""
 
