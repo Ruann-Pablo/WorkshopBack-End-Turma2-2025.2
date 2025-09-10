@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Resultado da Consulta</title>
+	</head>
+	<body>
+		<h1>Resultado da Consulta</h1>
+
+		{% if endereco %}
+		<p><strong>CEP:</strong> {{ endereco.cep }}</p>
+		<p><strong>Rua:</strong> {{ endereco.rua }}</p>
+		<p><strong>Bairro:</strong> {{ endereco.bairro }}</p>
+		<p><strong>Cidade:</strong> {{ endereco.cidade }}</p>
+		<p><strong>Estado:</strong> {{ endereco.estado }}</p>
+		{% elif erro %}
+		<p>{{ erro }}</p>
+		{% elif mensagem %}
+		<p>{{ mensagem }}</p>
+		{% endif %}
+
+		<a href="{% url 'endereco' %}">Voltar</a>
+	</body>
+</html>
