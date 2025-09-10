@@ -1,9 +1,35 @@
+from django.views.generic.edit import FormView
 from django.shortcuts import render
 from .models import Endereco
 from .form import EnderecoForm
 import requests
 
 # Create your views here.
+class ViaCepFormView(FormView):
+    template_name = 'endereco.html'
+    form_class = EnderecoForm
+    success_url = '/endereco/'
+
+    def form_valid(self, form):
+        cep = form.cleaned_data['cep']
+        response = requests.get(f'https://viacep.com.br/ws/{cep}/json/')
+        if response.status_code == 200:
+            data = response.json()
+            endereco = Endereco(
+                cep=data.get('cep'),
+                rua=data.get('logradouro'),
+                bairro=data.get('bairro'),
+                cidade=data.get('localidade'),
+                estado=data.get('uf'),
+            )
+            endereco.save()
+            return super().form_valid(form)
+        else:
+            form.add_error('cep', 'Não foi possível consultar o CEP')
+            return self.form_invalid(form)
+
+
+
 def endereco(request):
     return render(request, 'endereco.html')
 
