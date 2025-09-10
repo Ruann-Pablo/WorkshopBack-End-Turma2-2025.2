@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title></title>
+	</head>
+	<body>
+		{% extends 'viacep/base.html' %} {% block content %}
+		<h2>Excluir Endereço</h2>
+
+		<p>
+			Tem certeza que deseja excluir o endereço {{ endereco.cep }} - {{
+			endereco.rua }}?
+		</p>
+
+		<form method="post">
+			{% csrf_token %}
+			<button type="submit">Confirmar exclusão</button>
+		</form>
+
+		<a href="{% url 'cep_detail' endereco.pk %}">Cancelar</a>
+		{% endblock %}
+	</body>
+</html>

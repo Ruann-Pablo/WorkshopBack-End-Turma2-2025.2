@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title></title>
+	</head>
+	<body>
+		<a href="{% url 'index' %}">Buscar CEP</a> |
+		<a href="{% url 'cep_list' %}">Endereços Salvos</a>
+		<hr />
+
+		{% block content %}{% endblock %}
+
+		<hr />
+		<p>Sistema ViaCEP</p>
+	</body>
+</html>

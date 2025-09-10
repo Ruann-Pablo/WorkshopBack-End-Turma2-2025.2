@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Lista de Endereços</title>
+	</head>
+	<body>
+		{% extends 'viacep/base.html' %} {% block content %}
+		<h2>Lista de Endereços</h2>
+
+		<ul>
+			{% for endereco in enderecos %}
+			<li>
+				{{ endereco.cep }} - {{ endereco.rua }}, {{ endereco.bairro }},
+				{{ endereco.cidade }}/{{ endereco.estado }} [<a
+					href="{% url 'cep_detail' endereco.pk %}"
+					>Detalhes</a
+				>] [<a href="{% url 'cep_update' endereco.pk %}">Editar</a>] [<a
+					href="{% url 'cep_delete' endereco.pk %}"
+					>Excluir</a
+				>]
+			</li>
+			{% empty %}
+			<li>Nenhum endereço cadastrado.</li>
+			{% endfor %}
+		</ul>
+		{% endblock %}
+	</body>
+</html>

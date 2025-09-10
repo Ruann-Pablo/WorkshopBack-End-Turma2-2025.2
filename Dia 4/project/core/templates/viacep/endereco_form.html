@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Consulta CEP</title>
+	</head>
+	<body>
+		{% extends 'viacep/base.html' %} {% block content %}
+		<h2>Adicionar CEP</h2>
+
+		<form method="post">
+			{% csrf_token %} {{ form.as_p }}
+			<button type="submit">Consultar e Salvar</button>
+		</form>
+		{% endblock %}
+	</body>
+</html>
