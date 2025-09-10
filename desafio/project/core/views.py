@@ -53,3 +53,24 @@ def consulta_cep(request):
             return render(request, 'consulta_cep.html', {'erro': 'não foi possível consultar o CEP'})
         
     return render(request, 'consulta_cep.html', {'mensagem': 'Nenhum cep enviado'})
+
+
+class CepList():
+    model = Endereco
+    template_name = 'viacep/viacep_list.html'
+    context_object_name = 'ListCep'
+
+class CepDetails():
+    model = Endereco
+    template_name = 'viacep/viacep_details.html'
+    context_object_name = 'DetailsCep'
+
+class CepUpdate():
+    model = Endereco
+    template_name = 'viacep/viacep_update.html'
+    context_objexct_name = 'UpdateCep'
+
+class CepDelete():
+    model = Endereco
+    template_name = 'viacep/viacep_delete.html'
+    context_object_name = 'DeleteCep'
